@@ -56,6 +56,24 @@
       color: #000;
     }
 
+    .create-task-btn {
+      background: linear-gradient(to right, #afa547, #57c2d3);
+      transition: background-color 0.5s ease, color 0.5s ease;
+      font-family: "Sacramento", cursive;
+      color: #fff;
+      font-weight: bold;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .create-task-btn:hover {
+      background: linear-gradient(to right, #1a6349, #f2044b);
+      color: #000;
+    }
+
     /* Media Queries for Responsive Design */
 @media only screen and (max-width: 900px) {
   .filter-container {
@@ -106,6 +124,6 @@
   {% endif %}
 
   <div class="create-task-container">
-    <button class="create-task-btn">Create Task</button>
+    <a class="create-task-btn" href="{% url 'create_task' %}">Add Task</a>
   </div>
 {% endblock %}
