@@ -1,0 +1,26 @@
+<!-- tasks/templates/registration/login.html -->
+{% extends 'tasks/base.html' %}
+
+{% block title %}Log In{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'tasks/css/login.css' %}">
+  </head>
+  <div>
+    <div class="login-container">
+    <h2>Log In</h2>
+  <form class="login-form" method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+   </form>
+  <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+  </div>
+  </div>
+  
+  
+{% endblock %}

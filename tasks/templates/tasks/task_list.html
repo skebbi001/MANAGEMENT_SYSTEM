@@ -1,0 +1,111 @@
+<!-- tasks/templates/tasks/task_list.html -->
+
+{% extends 'tasks/base.html' %}
+
+{% block title %}Task List{% endblock %}
+
+{% load static %}
+
+{% block content %}
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'tasks/css/task_list.css' %}">
+    <script type="text/javascript" src="{% static 'tasks/scripts/task_list_script.js' %}"></script>
+    <meta name="csrf-token" content="{% csrf_token %}">
+  </head>
+  <style>
+    .filter-container {
+      display: flex;
+      gap: 10px;
+      margin: 2rem;
+    }
+    
+    .filter-btn {
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 20px;
+      color: #fff;
+      background: linear-gradient(to right, #818a4f, #087e78);
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+    
+    .filter-btn:hover {
+      background: linear-gradient(to right, #1da89d, #e69021);
+      color: #000;
+    }
+    
+    .active {
+      color: #e69021;
+    }
+
+    .delete-task-btn {
+      background: linear-gradient(to right, #47af55, #5757d3);
+      transition: background-color 0.5s ease, color 0.5s ease;
+      font-family: "Sacramento", cursive;
+      color: #fff;
+      font-weight: bold;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 2rem 1rem;
+      text-decoration: none;
+    }
+
+    .delete-task-btn:hover {
+      background: linear-gradient(to right, #1da89d, #e69021);
+      color: #000;
+    }
+
+    /* Media Queries for Responsive Design */
+@media only screen and (max-width: 900px) {
+  .filter-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin: 2rem;
+  }
+}
+  </style>
+  <div class="filter-container">
+    <a href="{% url 'task_list' %}" class="filter-btn {% if not request.GET.status %}active{% endif %}">All</a>
+    <a href="?status=ToDo" class="filter-btn {% if request.GET.status == 'ToDo' %}active{% endif %}">ToDo</a>
+    <a href="?status=InProgress" class="filter-btn {% if request.GET.status == 'InProgress' %}active{% endif %}">InProgress</a>
+    <a href="?status=Completed" class="filter-btn {% if request.GET.status == 'Completed' %}active{% endif %}">Completed</a>
+    <!-- Add buttons for other statuses as needed -->
+
+    <a href="?priority=High" class="filter-btn {% if request.GET.priority == 'High' %}active{% endif %}">High Priority</a>
+    <a href="?priority=Medium" class="filter-btn {% if request.GET.priority == 'Medium' %}active{% endif %}">Medium Priority</a>
+    <a href="?priority=Low" class="filter-btn {% if request.GET.priority == 'Low' %}active{% endif %}">Low Priority</a>
+  </div>
+
+  <div class="task-main-title">
+    <h1>Tasks List</h1>
+  </div>
+  
+
+  {% if tasks %}
+    <div class="task-container">
+      {% for task in tasks %}
+        <div class="task-text">
+          <span class="task-title">{{ task.title }}</span>
+          <span class="task-status {{ task.status|lower }}">{{ task.status }}</span>
+          <div class="task-button-container">
+            <button class="show-details-btn" data-task-id="{{ task.id }}">Show Details</button>
+            <!-- <button class="" data-task-id="{{ task.id }}">Delete Task</button> -->
+            <a class="delete-task-btn" href="{% url 'delete_task' task.id %}">Delete Task</a>
+          </div>
+          <!-- Container to hold task details -->
+          <div class="details-container" id="details-container-{{ task.id }}"></div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="unavailable-task-container">
+      <p>No tasks available for you!</p>
+    </div>
+  {% endif %}
+
+  <div class="create-task-container">
+    <button class="create-task-btn">Create Task</button>
+  </div>
+{% endblock %}

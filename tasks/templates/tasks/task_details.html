@@ -1,0 +1,22 @@
+{% load static %} 
+{% block content %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'tasks/css/task_details.css' %}">
+  </head>
+
+<div class="task_description_container">
+  <h2>{{ task.title }}</h2>
+  <p>Description: {{ task.description }}</p>
+  <p>Due Date: {{ task.due_date }}</p>
+  <p>Priority: {{ task.get_priority_display }}</p>
+  <p>Status: {{ task.get_status_display }}</p>
+  <p>Created At: {{ task.created_at }}</p>
+  <p>Updated At: {{ task.updated_at }}</p>
+
+  <a href="{% url 'update_task' task.id %}"
+    ><button class="button-container">Update Task</button></a
+  >
+</div>
+
+{% endblock %}

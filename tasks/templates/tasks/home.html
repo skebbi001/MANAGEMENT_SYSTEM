@@ -1,0 +1,48 @@
+<!-- tasks/templates/tasks/home.html -->
+{% extends 'tasks/base.html' %}
+
+{% block title %}Task Management System{% endblock %}
+
+{% load static %}
+
+{% block content %}
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'tasks/css/home.css' %}">
+  </head>
+
+  <div class="container">
+    <h1 class="home-title">Welcome to the Task Management System</h1>
+
+    <section class="feature_1">
+      <div class="feature-text">
+        <p class="home-text">Efficiently manage your tasks with our user-friendly Task Management System.</p>
+      </div>
+      <div class="feature-image">
+        <img class="image" src="{% static 'tasks/images/todo-lists-5238324.jpg' %}" alt="Image 1">
+      </div>
+    </section>
+
+    <section class="feature_2">
+      <div class="feature-image">
+        <img class="image" src="{% static 'tasks/images/pexels-anete-lusina-5239795.jpg' %}" alt="Image 2">
+      </div>
+      <div class="feature-text">
+        <p class="home-text">Stay organized, track due dates, set priorities, and keep a pulse on your daily activities.</p>
+      </div>
+    </section>
+
+    <section class="feature_1">
+      <div class="feature-text">
+        <p class="home-text">Whether you're an individual or a team, our system is designed to streamline your task management process, helping you achieve more with less effort.</p>
+      </div>
+      <div class="feature-image">
+        <img class="image" src="{% static 'tasks/images/pexels-kampus-production-5940841.jpg' %}" alt="Image 3">
+      </div>
+    </section>
+
+    <div class="options">
+      <a href="{% url 'task_list' %}"><button class="button-1">View Task List</button></a>
+      <a href="{% url 'create_task' %}"><button class="button-2">Create New Task</button></a>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,153 @@
+
+
+
+.task-main-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 2rem;
+}
+
+.task-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+  border-radius: 10px;
+  height: 100vh;
+}
+
+.task-text {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 25%;
+  height: fit-content;
+  padding: 15px;
+  margin-bottom: 4rem;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.527); 
+  backdrop-filter: blur(20px); 
+  margin-left: 3rem;
+
+}
+
+.task-title {
+  /* Apply your styling for the task title here */
+  font-size: 2rem;
+  font-weight: bolder;
+  color: #4e4e4e;
+  margin-bottom: 2rem;
+}
+
+.task-status {
+  /* Apply your styling for the status here */
+  font-weight: bold;
+  /* Default color */
+  color: #333;
+}
+
+/* Conditional styling based on status */
+.task-status.todo {
+  color: red;
+}
+
+.task-status.inprogress {
+  color: rgb(255, 81, 0);
+}
+
+.task-status.completed {
+  color: green;
+}
+
+.task-button-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.unavailable-task-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unavailable-task-container p {
+ font-size: 2rem;
+ font-weight: bold;
+ color: #3f3a6b;
+}
+
+button.show-details-btn,
+button.hide-details-btn {
+  background: linear-gradient(to right, #af7647, #579bd3);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  font-family: "Sacramento", cursive;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 2rem 1rem;
+}
+
+button.show-details-btn:hover,
+button.hide-details-btn:hover {
+  background: linear-gradient(to right, #afbe24, #5ca517);
+  color: #000;
+}
+
+button.hide-details-btn {
+  background-color: rgb(206, 33, 33); /* Change to red */
+}
+
+
+button {
+  font-family: "Sacramento", cursive;
+  background: linear-gradient(to right, #34dbcd, #cc872e);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: linear-gradient(to right, #1da89d, #e69021);
+  color: #000;
+}
+
+.create-task-container {
+  height: 5rem;
+}
+
+/* Media Queries for Responsive Design */
+@media only screen and (max-width: 768px) {
+  .task-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .task-text {
+   width: 80%;
+   justify-content: center;
+  }
+}
+
+/* Media Queries for Responsive Design */
+@media only screen and (max-width: 1200px) {
+  .task-container {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .task-text {
+   width: 70%;
+   justify-content: center;
+  }
+}

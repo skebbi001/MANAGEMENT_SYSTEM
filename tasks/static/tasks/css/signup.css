@@ -1,0 +1,79 @@
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+h2 {
+  color: #333;
+  text-decoration: underline;
+}
+
+.signup-container {
+  width: 22rem;
+  padding: 30px;
+  background-color: rgba(192, 199, 151, 0.4);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.527);
+  backdrop-filter: blur(20px);
+  border-radius: 15px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-form label {
+  display: block;
+  margin: 5px 0 5px;
+  color: #555;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="password"] {
+  width: 20rem;
+  padding: 10px;
+  border: none;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="password"]:focus {
+  outline: none;
+}
+
+.signup-form button {
+  width: 10rem;
+  padding: 10px;
+  background: linear-gradient(to right, #34dbcd, #cc872e);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.signup-form button:hover {
+  background: linear-gradient(to right, #22a398, #744a13);
+}
+
+p {
+  margin-top: 2rem;
+  color: #535353;
+}
+p a {
+  color: green;
+  text-decoration: none;
+}
+
+/* Media Queries for Responsive Design */
+@media only screen and (max-width: 768px) {
+  .signup-form {
+    width: 100%;
+  }
+}
